@@ -6,7 +6,7 @@ Um simples organizador para os períodos letivos, onde informará a previsão de
 
 Ou seja, ainda não está pronto. Longe disto, está em uma fase bem incipiente.
 
-- **[ ] BACK-END**
+- [ ] BACK-END
 - [ ] FRONT-END
 - [ ] API
 
