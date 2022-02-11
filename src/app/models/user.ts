@@ -1,10 +1,14 @@
-const { Sequelize, DataTypes, Model } = require("sequelize");
-const sequelize = require("../../database/database");
+import { Sequelize, DataTypes, Model } from "sequelize";
+const sequelize = require("../../database/database.ts");
 
 const bcrypt = require("bcrypt");
 
 class User extends Model {
-	validatePassword = async (password) => {
+	declare name: string;
+	declare email: string;
+	declare password: string;
+
+	validatePassword = async (password: string) => {
 		return await bcrypt.compareSync(password, this.password);
 	};
 }
@@ -30,13 +34,13 @@ User.init(
 		tableName: "users",
 		modelName: "User",
 		hooks: {
-			beforeCreate: async (user) => {
+			beforeCreate: async (user: User) => {
 				if (user.password) {
 					const salt = await bcrypt.genSaltSync(10, "a");
 					user.password = bcrypt.hashSync(user.password, salt);
 				}
 			},
-			beforeUpdate: async (user) => {
+			beforeUpdate: async (user: User) => {
 				if (user.password) {
 					const salt = await bcrypt.genSaltSync(10, "a");
 					user.password = bcrypt.hashSync(user.password, salt);

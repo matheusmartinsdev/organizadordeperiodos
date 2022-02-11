@@ -12,15 +12,6 @@ const sequelize = new Sequelize({
 	logging: false,
 });
 
-// (async () => {
-// 	try {
-// 		await sequelize.authenticate();
-// 		console.log("Conectado com sucesso");
-// 	} catch (error) {
-// 		console.log("Falha na conexão: ", error);
-// 	}
-// })();
-
 sequelize.sync();
 
 module.exports = sequelize;

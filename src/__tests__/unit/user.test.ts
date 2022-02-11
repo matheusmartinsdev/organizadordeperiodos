@@ -1,8 +1,6 @@
-const User = require("../../src/app/models/user");
+const User = require("../../app/models/user");
 
 const bcrypt = require("bcrypt");
-
-const sequelize = require("../../src/database/database");
 
 describe("User model tests", () => {
 	afterEach(() => {
